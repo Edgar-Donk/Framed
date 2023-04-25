@@ -38,7 +38,7 @@ extensions = ["sphinx.ext.autodoc",
     #'sphinx.ext.mathjax',
     'sphinx_copybutton',
     'matplotlib.sphinxext.plot_directive',
-    'sphinx_exec_code',
+    #'sphinx_exec_code',
     #'sphinx.ext.duration',
     #'sphinx.ext.doctest',
 ]
