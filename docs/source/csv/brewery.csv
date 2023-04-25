@@ -1,0 +1,18 @@
+brewery,beer_type,colour,alcohol,original_extract,calorific_value
+Craft Brew,Imperial Stout,#1a1a1a,7.5,16.5,251
+Craft Brew,German Red,#e8000b,7.9,16.5,251
+Altmünster,Winterbier,#ff7f00,5.5,None,195
+Keiler,Land-Pils,#a6cee3,4.9,None,171
+Schlapp-seppel,Kellerbier,#b15928,5.5,12,174
+Turmbräu,Winterbier,#ff7f00,5.2,None,180
+Bitburger,Winterbock,#6a3d9a,7,16.8,262
+Köstritzer,Kellerbier,#b15928,5.4,None,199
+Münschof,Kellerbier,#b15928,5.4,None,187
+Binding,Doppelbock,#6a3d9a,7.5,None,270
+Adnams,Citrus Pale Ale,#fb9a99,4.5,None,164
+Pilsner Urquelle,Pils,#1f78b4,4.3,10,
+Pilsner Urquelle,Pils,#1f78b4,5,12,
+Topvar,Pils,#1f78b4,4.5,10,160
+Topvar,Pils,#1f78b4,5.4,12,188
+Zlaty Bazant,Pils,#1f78b4,4.3,10,160
+Zlaty Bazant,Pils,#1f78b4,5,12,186
