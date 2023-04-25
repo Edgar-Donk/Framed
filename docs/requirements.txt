@@ -1,8 +1,7 @@
 sphinx
 numpydoc
 pandas
-altair
-matplotlib
+matplotlib>=3.3.2
 seaborn
 plotly
 pydata_sphinx_theme
