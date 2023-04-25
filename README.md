@@ -7,4 +7,4 @@ and visualise the data.
 
 ## See the working copy
 
-[Read the Docs](https://adams-ale.readthedocs.io/en/latest/index.html)
+[Read the Docs](https://frameyourdata.readthedocs.io/en/latest/index.html)
