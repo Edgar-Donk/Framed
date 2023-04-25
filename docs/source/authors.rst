@@ -23,7 +23,7 @@ Repository
 
 You should find all the pandas examples and the visualisations here.
 
-`framed! <https://github.com/Edgar-Donk/frothy-brew>`_
+`framed! <https://github.com/Edgar-Donk/Framed>`_
 
 
 Read the Docs
@@ -31,7 +31,7 @@ Read the Docs
 
 Where you'll find the explanations.
 
-`Read the Docs <https://frothy-brew.readthedocs.io/en/latest/index.html>`_
+`Read the Docs <https://frameyourdata.readthedocs.io/en/latest/index.html>`_
 
 More
 ====
