@@ -1,0 +1,9 @@
+sphinx
+numpydoc
+pandas
+altair
+matplotlib
+seaborn
+plotly
+pydata_sphinx_theme
+sphinx-copybutton
