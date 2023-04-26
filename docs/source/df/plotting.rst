@@ -29,11 +29,18 @@ such as this.
 Seaborn works well when working interactively, if necessary add mplcursors 
 to obtain a cursor as balloon text.
 
-.. plot:: pyplots/brewery_sea_hue.py
+.. figure:: ../figures/br_sea_hue.png
+    :width: 640
+    :height: 480
+    :align: center
 
-.. hint:: Viewing the Source Code
+.. container:: toggle
 
-    Just click on the link **Source code**.
+    .. container:: header
+
+        *Show/Hide Code* brewery_sea_hue.py
+
+    .. literalinclude:: ../pyplots/brewery_sea_hue.py
 
 .. note:: Plotting in Sphinx
 
@@ -45,7 +52,18 @@ would use in an interactive session. The colours of the points are probably
 good enough for the final plot, Plotly colours were based on the
 seaborn palette so the customised seaborn plot has a matching palette.
 
-.. plot:: pyplots/brewery_custom_hue.py
+.. figure:: ../figures/br_sea_hue.png
+    :width: 641
+    :height: 500
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brewery_custom_hue.py
+
+    .. literalinclude:: ../pyplots/brewery_custom_hue.py
 
 This seaborn plot shows how to customise the hue with a dictionary, adding
 overall title, axes labels and legend title. Mplcursors has been added to
@@ -76,27 +94,82 @@ well supported in Seaborn. Each column is paired with every other column
 and then shown again with opposite axes. Pairing every column often makes 
 little sense, select those columns that are related. 
 
-.. plot:: pyplots/brew_list_paired.py
+.. figure:: ../figures/br_list_paired.png
+    :width: 750
+    :height: 750
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_paired.py
+
+    .. literalinclude:: ../pyplots/brew_list_paired.py
 
 Change the diagonal from histogram to kernel density estimate (KDE)
 
-.. plot:: pyplots/brew_list_paired_kde.py
+.. figure:: ../figures/br_list_paired_kde.png
+    :width: 750
+    :height: 750
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_paired_kde.py
+
+    .. literalinclude:: ../pyplots/brew_list_paired_kde.py
 
 Change the columns to **AbV% AbW%**, alcohol by volume and weight in %, these
 ought to be in a straight line, check by drawing a regression line.
 
-.. plot:: pyplots/brew_list_scatter_regression.py
+.. figure:: ../figures/brew_list_scatter_regression.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_scatter_regression.py
+
+    .. literalinclude:: ../pyplots/brew_list_scatter_regression.py
 
 Now try with the wort and beer densities.
 
-.. plot:: pyplots/brew_list_regplot_densities.py
+.. figure:: ../figures/brew_list_regplot_densities.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_regplot_densities.py
+
+    .. literalinclude:: ../pyplots/brew_list_regplot_densities.py
 
 The densities show up the fact that there is some false data here, these need
 to be recalculated for Zlaty Bazant 12. Change the wort density to 1048.37
 and the beer density to 1009.69. Zlaty Bazant 12 and Pilsner Urquelle 12 are
 similar.
 
-.. plot:: pyplots/brew_list_regplot_densities_rev.py
+.. figure:: ../figures/brew_list_regplot_densities_rev.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_regplot_densities_rev.py
+
+    .. literalinclude:: ../pyplots/brew_list_regplot_densities_rev.py
 
 If there is a strong relationship between 3 variables, consider a heat map.
 Just as done with categorized data the third variable shows as a color, but
@@ -113,7 +186,18 @@ related, then use the correlation function and plot the heatmap.
 
     Complete information shows purple and missing information as yellow.
 
-.. plot:: pyplots/brew_list_heatmap.py
+.. figure:: ../figures/brew_list_heatmap.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_heatmap.py
+
+    .. literalinclude:: ../pyplots/brew_list_heatmap.py
 
 Positive correlation shows that the two independant variables move in the
 same direction, negative shows they move in opposite directions. The 
@@ -131,12 +215,36 @@ reduced number of columns for the x axis::
 
 If the default colours are not clear enough use a divergent colour map.
 
-.. plot:: pyplots/brew_list_heatmap_div.py
+.. figure:: ../figures/brew_list_heatmap_div.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_heatmap_div.py
+
+    .. literalinclude:: ../pyplots/brew_list_heatmap_div.py
+
 
 After using a heatmap consider using a clustermap. This highlights how 
 similar features are grouped.
 
-.. plot:: pyplots/brew_list_clustermap_div.py
+.. figure:: ../figures/brew_list_clustermap_div.png
+    :width: 500
+    :height: 500
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* brew_list_clustermap_div.py
+
+    .. literalinclude:: ../pyplots/brew_list_clustermap_div.py
+
 
 Statisical Visualisation
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,37 +261,105 @@ The box is divided at the median. The ends of the whiskers show the calculated
 minimum and maximum values. All this assumes the data lies in a bell shaped
 distribution.
 
-.. plot:: pyplots/tips_box.py
+.. figure:: ../figures/tips_box.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_box.py
+
+    .. literalinclude:: ../pyplots/tips_box.py
+
 
 The violin plot shows the distribution of quantitative data across several 
 levels of one (or more) categorical variables in order to compare 
 distributions. Underlying the plot are KDE distributions so ensure that 
 there is enough data so that the plots are not artificially smoothed.
 
-.. plot:: pyplots/tips_violin.py
+.. figure:: ../figures/tips_violin.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_violin.py
+
+    .. literalinclude:: ../pyplots/tips_violin.py
 
 A nice feature is that two categorical datatypes can be compared directly.
 
 A strip plot can be used on its own or in combination with a box or violin 
 plot. 
 
-.. plot:: pyplots/tips_box_strip.py
+.. figure:: ../figures/tips_box_strip.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_box_strip.py
+
+    .. literalinclude:: ../pyplots/tips_box_strip.py
 
 When using the violin plot the mean/standard bar might be masked by the
 stripplot points, bring this forward by adding **zorder=1**.
 
-.. plot:: pyplots/tips_violin_strip.py
+.. figure:: ../figures/tips_violin_strip.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_violin_strip.py
+
+    .. literalinclude:: ../pyplots/tips_violin_strip.py
 
 To make a plot with multiple facets, it is safer to use catplot() than 
 to work with FacetGrid directly, because catplot() will ensure that the 
 categorical and hue variables are properly synchronized in each facet.
 
-.. plot:: pyplots/tips_catplot.py
+.. figure:: ../figures/tips_catplot.png
+    :width: 1105
+    :height: 500
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_catplot.py
+
+    .. literalinclude:: ../pyplots/tips_catplot.py
 
 A swarmplot is similar to the striplot, but the points have automatically
 adjusted, so jitter is not required.
 
-.. plot:: pyplots/tips_swarmplot.py
+.. figure:: ../figures/tips_swarmplot.png
+    :width: 640
+    :height: 480
+    :align: center
+
+.. container:: toggle
+
+    .. container:: header
+
+        *Show/Hide Code* tips_swarmplot.py
+
+    .. literalinclude:: ../pyplots/tips_swarmplot.py
+
 
 Storage Format
 --------------
