@@ -8,3 +8,4 @@ dfch = dfc[['OE°P', 'AbV%', 'FP°C', 'TMD°C']]
 corr = dfch.corr()
 sns.clustermap(corr, cmap='RdBu')
 plt.show()
+#plt.savefig('../figures/brew_list_clustermap_div.png')

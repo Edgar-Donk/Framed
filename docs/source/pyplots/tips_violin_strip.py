@@ -10,3 +10,4 @@ sns.violinplot(x="day", y="total_bill", data=tips, color="0.8")
 sns.stripplot(x="day", y="total_bill", data=tips, jitter=True, zorder=1, hue='day')
 
 plt.show()
+#plt.savefig('../figures/tips_violin_strip.png')

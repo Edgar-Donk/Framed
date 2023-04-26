@@ -23,3 +23,4 @@ handles, labels = ax.get_legend_handles_labels()
 l = plt.legend(handles[0:2], labels[0:2], bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 plt.show()
+#plt.savefig('../figures/tips_box_strip.png')

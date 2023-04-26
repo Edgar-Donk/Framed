@@ -7,4 +7,5 @@ tips = sns.load_dataset("tips")
 
 sns.swarmplot(data=tips, x="total_bill", y="day", hue="size", palette="deep")
 
-plt.show()
+#plt.show()
+plt.savefig('../figures/tips_swarmplot.png')

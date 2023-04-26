@@ -10,3 +10,4 @@ dfc.loc[10, ['Beer Density kg/m³']] = [1009.69]
 # reading the wort and beer densities
 sns.regplot(dfc, x='Wort Density kg/m³', y='Beer Density kg/m³')
 plt.show()
+#plt.savefig('../figures/brew_list_regplot_densities_rev.png')

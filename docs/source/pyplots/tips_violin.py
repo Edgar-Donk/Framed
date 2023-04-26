@@ -7,3 +7,4 @@ tips = sns.load_dataset('tips')
 sns.violinplot(x = 'day',y = 'tip',  data = tips, hue = 'sex', split = True, palette = 'rainbow')
 
 plt.show()
+#plt.savefig('../figures/tips_violin.png')

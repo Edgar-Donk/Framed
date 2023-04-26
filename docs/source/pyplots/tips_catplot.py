@@ -7,4 +7,5 @@ tips = sns.load_dataset('tips')
 
 sns.catplot(data=tips, x="time", y="total_bill", hue="sex", col="day", aspect=.5)
 
-plt.show()
+#plt.show()
+plt.savefig('../figures/tips_catplot.png')

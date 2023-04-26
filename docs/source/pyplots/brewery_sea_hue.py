@@ -7,4 +7,5 @@ df = pd.read_csv("../csv/brewery.csv")
 
 sns.scatterplot(data=df, x='calorific_value', y='alcohol', hue='beer_type')
 
-plt.show()
+#plt.show()
+plt.savefig('../figures/br_sea_hue.png')

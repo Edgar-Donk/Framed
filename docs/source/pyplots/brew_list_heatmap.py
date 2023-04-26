@@ -10,3 +10,4 @@ corr = dfch.corr()
 sns.heatmap(corr)
 
 plt.show()
+#plt.savefig('../figures/brew_list_heatmap.png')
