@@ -76,7 +76,7 @@ Zlaty Bazant or Topvar, so drop these rows::
 
     df = df.dropna(subset=['calorific_value'])
 
-.. hint:: View the Balloon Cursors Working
+.. hint:: To View the Balloon Cursors Working
 
     Load the script into a Python session.
 

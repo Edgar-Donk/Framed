@@ -33,7 +33,7 @@ or **openpyxl** for reading and writing xlsx files. When working with
 statistics **SciPy** may be required, although pandas has a useful collection 
 of built-in functions.
 
-**Seaborn** is built upon matplotlib and can quickly visualise data. Some of 
+**Seaborn** can quickly visualise data. Some of 
 its built in functions blend in very nicely with Pandas, many of its built-in
 tutorial examples are pandas' dataframes.
 

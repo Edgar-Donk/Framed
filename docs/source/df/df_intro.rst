@@ -22,7 +22,7 @@ to the user.
     
     The cursor coordinates are not constrained to the plot.
 
-Seaborn is built up on matplotlib ensure the data is assigned to x and y,
+Seaborn is built upon matplotlib, ensure the data is assigned to x and y,
 otherwise it will show a "TypeError"::
 
     import matplotlib.pyplot as plt
@@ -115,7 +115,7 @@ over to a data frame, this applies to the other libraries as well::
 Notice how the data has been transformed from essentially a horizontal view,
 lists or dictionary, to a vertical one, with **'x'** and **'y'** becoming
 column names. The column of digits on the left is an index. Plotting libraries
-examples often use type of layout, which is the long layout. Normally the
+examples often use this type of layout, which is the long layout. Normally the
 long format is the most suitable but there are exceptions related to 
 plotting methods.
 
@@ -123,7 +123,8 @@ plotting methods.
     has one row per independent variable, with metadata recorded in the row 
     and column labels.
 
-* long-form data has one row per observation, with metadata recorded within 
+* long-form data 
+    has one row per observation, with metadata recorded within 
     the table as values.
 
 When the data is supplied as lists or mathematical/scientific formulae there
