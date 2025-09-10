@@ -99,8 +99,8 @@ def setup(app):
 html_theme_options = {
    "logo": {
       "text": "Framed!",
-      "image_light": 'bigbenc.png',
-      "image_dark": "bigbencneon.png",
+      "image_light": 'bigbenc.avif',
+      "image_dark": "bigbencneon.avif",
    }
 }
 
