@@ -169,12 +169,19 @@ to to_numeric above, clean up date columns::
 
     pd.to_datetime(df['date_col'], errors='coerce').isnull().value_counts()
 
-This time we are counting the number of errors and successes there are. Knowing
+This time we are counting the number of errors and successes that exist. Knowing
 the dataframe size the result will show **False df_size** when everything
 is correct and the number of errors **True err_size**. Also a new column will
 be generated whilst searching for errors, this allows the old data to remain
 in the original column while the new column will display the errors as NaT
 (not a time).
+
+.. sidebar:: Detecting False Dates
+
+    The query shows whether an error occurred, therefore an error occurred
+    or not it displays the opposite of a correct answer. Hence *False* should
+    have a large number, if clean the same as the dataframe size, whereas
+    *True* should be small the number of errors found.
 
 Date time errors require a bit of unravelling. There can be errors caused by
 the wrong format, pandas reads the year first, then month then day in default
@@ -388,8 +395,8 @@ It is easiest to remove delimiters and only show when displaying. Integers
 are hard coded not to allow delimiters. Under normal circumstances loading
 data directly with a dictionary does not allow delimiters.
 
-Using a similar method to datetime check whether the column has any 
-disallowed numeric values. This time 'Price' is an object::
+Using a similar method to datetime, check whether the column has any 
+disallowed numeric values. This time 'Price' shows as an object::
 
     df = pd.read_csv("file4.csv", sep=";")
     df
@@ -506,7 +513,7 @@ Try the same with the column **Gravity**::
 
 Once again in **Gravity** column the count of unique entries is 2, but the 
 value_counts are 6 and 3, only 9 rows filled out of 11. The **Beer Type** is not 
-alphabetical so to find the row use the index. The previous 3 commands confirm
+alphabetical so use the index to find the row. The previous 3 commands confirm
 what we already know, the last, **dfb['Gravity'].isnull()**, is closer to 
 what we require, but is
 impractical for a larger dataframe::
@@ -666,7 +673,7 @@ display output to show all the rows::
     max           1055.130000         1016.730000  -1.350000   2.940000
 
 Obviously British and Continental units cannot be mixed, so the beer types
-should have been separated, as different dataframes or additional rows,
+should have been separated, as different dataframes or additional rows used,
 whichever is appropriate.
 
 .. sidebar:: Change the Display Limits

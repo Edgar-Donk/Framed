@@ -5,7 +5,7 @@ Loading Data
 Long and Wide Form
 ==================
 
-.. figure:: ../figures/long_form_data_structure_19_0.png
+.. figure:: ../figures/long_form_data_structure_19_0.avif
     :width: 633
     :height: 436
     :align: center

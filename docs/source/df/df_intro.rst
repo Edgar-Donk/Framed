@@ -13,7 +13,7 @@ a dataframe.
 When plotted on python there is a toolbar shown which gives some interaction
 to the user. 
 
-.. figure:: ../figures/matplotlib.jpg
+.. figure:: ../figures/matplotlib.avif
     :width: 640
     :height: 268
     :align: center
@@ -93,7 +93,7 @@ Just as we had done for Altair, Plotly can use a dictionary::
     fig = px.line(dict, x = "x", y = "y")
     fig.show()
 
-Whenever a dictionary or the plotting becomes complex it is best to change
+Whenever using a dictionary or the plotting becomes complex it is best to change
 over to a data frame, this applies to the other libraries as well::
 
     import plotly.express as px
@@ -114,7 +114,7 @@ over to a data frame, this applies to the other libraries as well::
 
 Notice how the data has been transformed from essentially a horizontal view,
 lists or dictionary, to a vertical one, with **'x'** and **'y'** becoming
-column names. The column of digits on the left is an index. Plotting libraries
+column names. The column of digits on the left is an index. Plotting library
 examples often use this type of layout, which is the long layout. Normally the
 long format is the most suitable but there are exceptions related to 
 plotting methods.
