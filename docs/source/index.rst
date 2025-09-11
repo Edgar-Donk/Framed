@@ -9,6 +9,10 @@ Welcome Framed!
    data frame is necessary and how to create and clean up the data before
    plotting.
 
+Pandas can help with many different tasks, once these fundamentals have been
+grasped it would be beneficial to see what other methods are available
+`at the Pandas website <https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html>`_.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
