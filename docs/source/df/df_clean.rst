@@ -141,7 +141,21 @@ If the command raises a warning::
 
     df.loc[pd.to_numeric(df['column_name'], errors='coerce').isna(), 'column_name']
 
-Our original data had integers, a different replacement command is necessary::
+Our original data had integers, a different replacement command is necessary
+
+.. sidebar:: Pandas NaN and Numpy nan
+
+   Both refer to ``Not a Number``. Within Pandas it is 
+   used on a column that is meant to contain numerical data. Both *NaN* and
+   numpy *nan* are floating point representations of a field that is not numeric. 
+   Column *a* should have an integer type, but the first correction attempt
+   inserted *NaN* and the remaining fields became floating point numbers.
+   
+   Next Numpy's nan is used to search for the error and *-1* is used as a 
+   replacement , this time column *a* contains only integers and the type
+   is corrected.
+
+::
 
     dferr['a'] = dferr['a'].replace(np.nan, -1).astype(np.int64)
     dferr
@@ -156,10 +170,9 @@ Our original data had integers, a different replacement command is necessary::
     c    object
     dtype: object
 
+
 The numbers are now integers and the cleaned up data is **-1** which should
 be different to the other valid entries.
-
-
 
 Date Time Columns
 ^^^^^^^^^^^^^^^^^^
