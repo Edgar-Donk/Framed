@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cleaning Data &#8212; Framed! 0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=18480dc6" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8dde47fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'df/df_clean';</script>
+    <link rel="icon" href="../_static/ben1.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualising Data" href="plotting.html" />
+    <link rel="prev" title="Data Manipulation" href="df_change.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/bigbenc.avif" class="logo__image only-light" alt=""/>
+    <img src="../_static/bigbencneon.avif" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Framed!</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index_df.html">
+    Data Frame
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../authors.html">
+    Contributors
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index_df.html">
+    Data Frame
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../authors.html">
+    Contributors
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Frames...:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="df_intro.html">Introduction DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df_install.html">Using Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_data.html">Loading Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df_change.html">Data Manipulation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cleaning Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Visualising Data</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="df_save.html">Saving Data</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index_df.html" class="nav-link">Data Frame</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Cleaning Data</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cleaning-data">
+<h1>Cleaning Data<a class="headerlink" href="#cleaning-data" title="Link to this heading">#</a></h1>
+<p>Before data cleaning check what state the dataframe is in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 4 entries, 0 to 3</span>
+<span class="go">Data columns (total 2 columns):</span>
+<span class="go"> #   Column   Non-Null Count  Dtype</span>
+<span class="go">---  ------   --------------  -----</span>
+<span class="go"> 0   Product  4 non-null      object</span>
+<span class="go"> 1   Price    4 non-null      int64</span>
+<span class="go">dtypes: int64(1), object(1)</span>
+<span class="go">memory usage: 192.0+ bytes</span>
+</pre></div>
+</div>
+<p>When cleaning data save to a new dataframe or overwrite the existing
+dataframe, otherwise the result is lost.
+If you want to keep a working copy in memory
+give the action a new name (df1, df2 ..), when you want to keep the result
+and overwrite the working dataframe save to the same name or add the parameter
+<strong>inplace=True</strong> (this last command is discouraged).</p>
+<section id="right-character-set">
+<h2>Right Character Set<a class="headerlink" href="#right-character-set" title="Link to this heading">#</a></h2>
+<p>Python 3 works in the UTF-8 character set, if you experience errors associated
+UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xe4 …. or something
+similar check that the file is actually UTF-8. The file may still be in ASCII.</p>
+<p>When checking with <strong>chardet</strong> ensure that the program reads the contents
+of the <a class="reference external" href="https://stackoverflow.com/questions/54389780/using-chardet-to-detect-encoding">file</a>
+and not the name of the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;beer_list.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="go">&lt;_io.TextIOWrapper name=&#39;beer_list.csv&#39; mode=&#39;r&#39; encoding=&#39;cp1252&#39;&gt;</span>
+</pre></div>
+</div>
+<p>“beer_list.csv” is stored on a windows machine, hence encoding=’cp1252’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">chardet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filecsv_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;beer_list.csv&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">csv</span> <span class="ow">in</span> <span class="n">filecsv_list</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># or a chunk, f.read(1000000)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">encoding</span><span class="o">=</span><span class="n">chardet</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">b</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+
+<span class="go">UTF-8-SIG</span>
+</pre></div>
+</div>
+<p>If the answer had returned ‘iso-8859-1’ (equivalent to latin-1) then it needs
+converting. External sites may require <strong>encoding=’iso-8859-1’</strong>, internal
+files can be converted by most file editors.</p>
+</section>
+<section id="missing-values">
+<h2>Missing Values<a class="headerlink" href="#missing-values" title="Link to this heading">#</a></h2>
+<p>First check whether there are any missing values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="go">    Product  Price</span>
+<span class="go">0    False  False</span>
+<span class="go">1    False  False</span>
+<span class="go">2    False  False</span>
+<span class="go">3    False  False</span>
+</pre></div>
+</div>
+<p>This may be all that is required in a small dataframe, for a larger dataframe
+use a summary query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">Product    0</span>
+<span class="go">Price      0</span>
+</pre></div>
+</div>
+<p>On some dataframes there may be columns that are of little interest and can
+be safely removed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If there is a reason to hold back then:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</pre></div>
+</div>
+</section>
+<section id="wrong-data-type">
+<h2>Wrong Data Type<a class="headerlink" href="#wrong-data-type" title="Link to this heading">#</a></h2>
+<p>See whether the data types correspond to the expected. Uncleaned data has
+a lot of unassigned data type. The general catchall is <strong>object</strong> for
+anything not a number, which is assigned int64 or float64:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">Unnamed: 0     int64</span>
+<span class="go">Product       object</span>
+<span class="go">Price          int64</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>Make a small dataframe with an error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span>
+<span class="go">   a  c</span>
+<span class="go">0  0  a</span>
+<span class="go">1  1  b</span>
+<span class="go">2  2  c</span>
+<span class="go">3  a  d</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">a    object</span>
+<span class="go">c    object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>Both columns are object as they either have mixed dtypes or are characters.
+Clean up column “a”, if on a large dataframe it may not be so easy to spot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span>
+<span class="go">    a  c</span>
+<span class="go">0  0.0  a</span>
+<span class="go">1  1.0  b</span>
+<span class="go">2  2.0  c</span>
+<span class="go">3  NaN  d</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">a    float64</span>
+<span class="go">c     object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>Column “a” now shows as float64, as the replacement <strong>NaN</strong> is a float type.</p>
+<p>If the command raises a warning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SettingWithCopyWarning</span><span class="p">:</span>
+<span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span><span class="w"> </span><span class="nn">a</span> <span class="n">DataFrame</span><span class="o">.</span>
+<span class="n">Try</span> <span class="n">using</span> <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_indexer</span><span class="p">,</span><span class="n">col_indexer</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="n">instead</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column_name&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="s1">&#39;column_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Our original data had integers, a different replacement command is necessary</p>
+<aside class="sidebar">
+<p class="sidebar-title">Pandas NaN and Numpy nan</p>
+<p>Both refer to <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">a</span> <span class="pre">Number</span></code>. Within Pandas it is
+used on a column that is meant to contain numerical data. Both <em>NaN</em> and
+numpy <em>nan</em> are floating point representations of a field that is not numeric.
+Column <em>a</em> should have an integer type, but the first correction attempt
+inserted <em>NaN</em> and the remaining fields became floating point numbers.</p>
+<p>Next Numpy’s nan is used to search for the error and <em>-1</em> is used as a
+replacement , this time column <em>a</em> contains only integers and the type
+is corrected.</p>
+</aside>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span>
+<span class="go">   a  c</span>
+<span class="go">0  0  a</span>
+<span class="go">1  1  b</span>
+<span class="go">2  2  c</span>
+<span class="go">3 -1  d</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">a     int64</span>
+<span class="go">c    object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>The numbers are now integers and the cleaned up data is <strong>-1</strong> which should
+be different to the other valid entries.</p>
+</section>
+<section id="date-time-columns">
+<h2>Date Time Columns<a class="headerlink" href="#date-time-columns" title="Link to this heading">#</a></h2>
+<p>Whittle down those columns with object dtypes, using a similar cleanup command
+to to_numeric above, clean up date columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_col&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This time we are counting the number of errors and successes that exist. Knowing
+the dataframe size the result will show <strong>False df_size</strong> when everything
+is correct and the number of errors <strong>True err_size</strong>. Also a new column will
+be generated whilst searching for errors, this allows the old data to remain
+in the original column while the new column will display the errors as NaT
+(not a time).</p>
+<aside class="sidebar">
+<p class="sidebar-title">Detecting False Dates</p>
+<p>The query shows whether an error occurred, therefore an error occurred
+or not it displays the opposite of a correct answer. Hence <em>False</em> should
+have a large number, if clean the same as the dataframe size, whereas
+<em>True</em> should be small the number of errors found.</p>
+</aside>
+<p>Date time errors require a bit of unravelling. There can be errors caused by
+the wrong format, pandas reads the year first, then month then day in default
+mode. Since it is programmed in America it interprets 03-04-2021 as the 4th
+March and not the 3rd of April:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2014-04-03&#39;</span><span class="p">)</span>
+
+<span class="go">Timestamp(&#39;2014-04-03 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;03-04-2014&#39;</span><span class="p">)</span>
+
+<span class="go">Timestamp(&#39;2014-03-04 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;03-04-2014&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span>
+
+<span class="go">Timestamp(&#39;2014-04-03 00:00:00&#39;)</span>
+</pre></div>
+</div>
+<p>Pandas was shown the intention by <strong>format</strong>, unfortunately date and time formats
+can vary from place to place, so the following is a summary of normally used
+values</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>%Y</dt><dd><p>complete year (4 integers)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>%m</dt><dd><p>month, zero padded (2 integers)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>%d</dt><dd><p>day, zero padded (2 integers)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>%H</dt><dd><p>hour, 24 hour zero padded (2 integers)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>%M</dt><dd><p>minute, zero padded (2 integers)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>%S</dt><dd><p>second, zero padded (2 integers)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The dates are separated by hyphens the times by full colons with a space between
+the date and time. Other formats can be used, see the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">datetime table</a>
+for a full list of the many other possibilities.</p>
+<p>Start off with a dictionary containing some errors to correct:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># create a dataframe
+&gt;&gt;&gt; df = pd.DataFrame({
+&gt;&gt;&gt;     &#39;Date&#39;: [&#39;2021-02-29&#39;,&#39;2021-04-02&#39;,&#39;03-04-2021&#39;,&#39;2021-04-04&#39;,&#39;2021-04-05&#39;],
+&gt;&gt;&gt;     &#39;Units Sold&#39;: [120, 123, 150, 160, 140]
+&gt;&gt;&gt; })
+
+&gt;&gt;&gt; df
+             Date  Units Sold
+    0  2021-02-29         120
+    1  2021-04-02         123
+    2  03-04-2021         150
+    3  2021-04-04         160
+    4  2021-04-05         140
+
+&gt;&gt;&gt; df.info()
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 2 columns):
+#   Column      Non-Null Count  Dtype
+---  ------      --------------  -----
+0   Date        5 non-null      object
+1   Units Sold  5 non-null      int64
+dtypes: int64(1), object(1)
+memory usage: 208.0+ bytes
+
+# change data type to datetime
+&gt;&gt;&gt; df[&#39;Date&#39;] = pd.to_datetime(df[&#39;Date&#39;])
+</pre></div>
+</div>
+<p>Creates a pile of error statements, finishing off with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dateutil</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">_parser</span><span class="o">.</span><span class="n">ParserError</span><span class="p">:</span> <span class="n">day</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span> <span class="k">for</span> <span class="n">month</span><span class="p">:</span>
+<span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">29</span> <span class="n">present</span> <span class="n">at</span> <span class="n">position</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>This detected the false date in the first line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="go">False    4</span>
+<span class="go">True     1</span>
+<span class="go">Name: Date, dtype: int64</span>
+</pre></div>
+</div>
+<p>Confirms the finding, 4 not null values, 1 false line. With a small dataframe
+one can view and rectify easily. On a larger dataframe create a separate
+column with the corrected datetimes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">         Date  Units Sold    correct</span>
+<span class="go">0  2021-02-29         120        NaT</span>
+<span class="go">1  2021-04-02         123 2021-04-02</span>
+<span class="go">2  03-04-2021         150 2021-03-04</span>
+<span class="go">3  2021-04-04         160 2021-04-04</span>
+<span class="go">4  2021-04-05         140 2021-04-05</span>
+</pre></div>
+</div>
+<p>Although the column <strong>correct</strong> has the right value <strong>NaT</strong> for the first
+line the change in date on the third line might have slipped in unnoticed.
+Add <strong>format</strong> to the date, then any differences will be hightlighted and
+can be tackled accordingly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">         Date  Units Sold    correct</span>
+<span class="go">0  2021-02-29         120        NaT</span>
+<span class="go">1  2021-04-02         123 2021-04-02</span>
+<span class="go">2  03-04-2021         150        NaT</span>
+<span class="go">3  2021-04-04         160 2021-04-04</span>
+<span class="go">4  2021-04-05         140 2021-04-05</span>
+</pre></div>
+</div>
+<p>In a larger dataframe it is impractical to find the errors by inspection,
+use a query to find the errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="go">         Date  Units Sold correct</span>
+<span class="go">0  2021-02-29         120     NaT</span>
+<span class="go">2  03-04-2021         150     NaT</span>
+</pre></div>
+</div>
+<p>Now the index numbers are known it is straightforward to change the <strong>Date</strong>
+to correct the errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2021-02-28&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2021-04-03&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">         Date  Units Sold    correct</span>
+<span class="go">0  2021-02-28         120        NaT</span>
+<span class="go">1  2021-04-02         123 2021-04-02</span>
+<span class="go">2  2021-04-03         150        NaT</span>
+<span class="go">3  2021-04-04         160 2021-04-04</span>
+<span class="go">4  2021-04-05         140 2021-04-05</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">         Date  Units Sold    correct</span>
+<span class="go">0  2021-02-28         120 2021-02-28</span>
+<span class="go">1  2021-04-02         123 2021-04-02</span>
+<span class="go">2  2021-04-03         150 2021-04-03</span>
+<span class="go">3  2021-04-04         160 2021-04-04</span>
+<span class="go">4  2021-04-05         140 2021-04-05</span>
+</pre></div>
+</div>
+<p>The dataframe is now ready to accept the dtype conversion of the Date
+column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 5 entries, 0 to 4</span>
+<span class="go">Data columns (total 3 columns):</span>
+<span class="go">#   Column      Non-Null Count  Dtype</span>
+<span class="go">---  ------      --------------  -----</span>
+<span class="go">0   Date        5 non-null      datetime64[ns]</span>
+<span class="go">1   Units Sold  5 non-null      int64</span>
+<span class="go">2   correct     5 non-null      datetime64[ns]</span>
+<span class="go">dtypes: datetime64[ns](2), int64(1)</span>
+<span class="go">memory usage: 248.0 bytes</span>
+</pre></div>
+</div>
+<p>The dtype for datetime is <strong>datetime64(ns)</strong>, where ns refers to nanoseconds.
+Now the dataframe can be cleaned up by removing the <strong>correct</strong> column and
+saving.</p>
+</section>
+<section id="currency-symbols">
+<h2>Currency Symbols<a class="headerlink" href="#currency-symbols" title="Link to this heading">#</a></h2>
+<p>Pandas does not handle currency signs, so where necessary replace the local
+currency symbol with an empty value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;€100&#39;</span><span class="p">,</span> <span class="s1">&#39;€150&#39;</span><span class="p">,</span> <span class="s1">&#39;€200&#39;</span><span class="p">,</span> <span class="s1">&#39;€250&#39;</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s1">&#39;Item&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span>
+<span class="go">    Cost Item</span>
+<span class="go">0  €100    a</span>
+<span class="go">1  €150    b</span>
+<span class="go">2  €200    c</span>
+<span class="go">3  €250    d</span>
+<span class="go">dferr.dtypes</span>
+<span class="go">Cost    object</span>
+<span class="go">Item    object</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;€&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span>
+<span class="go">  Cost Item</span>
+<span class="go">0  100    a</span>
+<span class="go">1  150    b</span>
+<span class="go">2  200    c</span>
+<span class="go">3  250    d</span>
+
+<span class="go">dferr.dtypes</span>
+<span class="go">Cost    object</span>
+<span class="go">Item    object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>The <strong>Cost</strong> column is still an object, convert to integer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dferr</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dferr</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">Cost     int32</span>
+<span class="go">Item    object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>astype()</p>
+<p>Only specify int, not int32, float is similar only use float
+not float64.</p>
+</div>
+</section>
+<section id="thousand-delimiters">
+<h2>Thousand Delimiters<a class="headerlink" href="#thousand-delimiters" title="Link to this heading">#</a></h2>
+<p>Columns that show integers might have various delimiters to show thousands.
+It is easiest to remove delimiters and only show when displaying. Integers
+are hard coded not to allow delimiters. Under normal circumstances loading
+data directly with a dictionary does not allow delimiters.</p>
+<p>Using a similar method to datetime, check whether the column has any
+disallowed numeric values. This time ‘Price’ shows as an object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file4.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">      Product     Price</span>
+<span class="go">0      Tablet    250.00</span>
+<span class="go">1     Printer    105.00</span>
+<span class="go">2      Laptop  1,200.00</span>
+<span class="go">3  UHD Screen    400.00</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">Product    object</span>
+<span class="go">Price      object</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">))</span>
+
+<span class="go">...</span>
+<span class="go">ValueError: Unable to parse string &quot;1,200.00&quot;</span>
+<span class="go">...</span>
+<span class="go">ValueError: Unable to parse string &quot;1,200.00&quot; at position 2</span>
+</pre></div>
+</div>
+<p>An error is produced together with its position - we already know it’s in
+the column ‘Price’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">Product     object</span>
+<span class="go">Price      float64</span>
+</pre></div>
+</div>
+</section>
+<section id="categories">
+<h2>Categories<a class="headerlink" href="#categories" title="Link to this heading">#</a></h2>
+<p>Check for columns with a few known values - maybe these columns are not so
+relevant and can be deleted. With a large dataframe find these
+columns, and check that all values are in place, like the following
+small example. First load the dataframe, show it and then call its info:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;beer_list.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span>
+<span class="go">              Beer Type Ferment Type    OE°P  ...  FP°C  TMD°C  Gravity</span>
+<span class="go">0             Topvar 10       bottom    10.0  ... -2.11   2.94        P</span>
+<span class="go">1             Topvar 12       bottom    12.0  ... -2.49   2.68        P</span>
+<span class="go">2   Pilsner Urquelle 10       bottom    10.0  ... -2.04   2.69        P</span>
+<span class="go">3   Pilsner Urquelle 12       bottom    12.0  ... -2.36   2.18        P</span>
+<span class="go">4       Zlaty Bazant 10       bottom    10.0  ... -2.04   2.69        P</span>
+<span class="go">5           Heavy Czech       bottom    13.6  ... -2.40   1.03        P</span>
+<span class="go">6              Bitter 1          top  1030.9  ... -1.51   2.60        B</span>
+<span class="go">7              Bitter 2          top  1045.3  ... -2.19   2.20        B</span>
+<span class="go">8                Mild 1          top  1030.7  ... -1.35   2.02        B</span>
+<span class="go">9                Mild 2          top  1036.5  ... -1.77   2.42      NaN</span>
+<span class="go">10      Zlaty Bazant 12       bottom    12.0  ... -2.36   2.18      NaN</span>
+
+<span class="go">[11 rows x 13 columns]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 11 entries, 0 to 10</span>
+<span class="go">Data columns (total 13 columns):</span>
+<span class="go"> #   Column              Non-Null Count  Dtype</span>
+<span class="go">---  ------              --------------  -----</span>
+<span class="go"> 0   Beer Type           11 non-null     object</span>
+<span class="go"> 1   Ferment Type        11 non-null     object</span>
+<span class="go"> 2   OE°P                11 non-null     float64</span>
+<span class="go"> 3   AbV%                11 non-null     float64</span>
+<span class="go"> 4   AbW%                11 non-null     float64</span>
+<span class="go"> 5   DoF%                11 non-null     float64</span>
+<span class="go"> 6   TE°P                11 non-null     float64</span>
+<span class="go"> 7   AE°P                11 non-null     float64</span>
+<span class="go"> 8   Wort Density kg/m³  11 non-null     float64</span>
+<span class="go"> 9   Beer Density kg/m³  11 non-null     float64</span>
+<span class="go"> 10  FP°C                11 non-null     float64</span>
+<span class="go"> 11  TMD°C               11 non-null     float64</span>
+<span class="go"> 12  Gravity             9 non-null      object</span>
+<span class="go">dtypes: float64(10), object(3)</span>
+<span class="go">memory usage: 1.2+ KB</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Ferment Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Ferment Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="go">bottom    7</span>
+<span class="go">top       4</span>
+<span class="go">Name: Ferment Type, dtype: int64</span>
+</pre></div>
+</div>
+<p>In the column <strong>Ferment Type</strong> the count of unique entries is 2 (function
+<code class="docutils literal notranslate"><span class="pre">nunique()</span></code>), value_counts
+totals 11 which equals the number of rows, so this row requires no adjustment.
+Try the same with the column <strong>Gravity</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="go">P    6</span>
+<span class="go">B    3</span>
+<span class="go">Name: Gravity, dtype: int64</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="go">0     False</span>
+<span class="go">1     False</span>
+<span class="go">2     False</span>
+<span class="go">3     False</span>
+<span class="go">4     False</span>
+<span class="go">5     False</span>
+<span class="go">6     False</span>
+<span class="go">7     False</span>
+<span class="go">8     False</span>
+<span class="go">9      True</span>
+<span class="go">10     True</span>
+<span class="go">Name: Gravity, dtype: bool</span>
+</pre></div>
+</div>
+<p>Once again in <strong>Gravity</strong> column the count of unique entries is 2, but the
+value_counts are 6 and 3, only 9 rows filled out of 11. The <strong>Beer Type</strong> is not
+alphabetical so use the index to find the row. The previous 3 commands confirm
+what we already know, the last, <strong>dfb[‘Gravity’].isnull()</strong>, is closer to
+what we require, but is
+impractical for a larger dataframe:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="go">          Beer Type Ferment Type    OE°P  ...  FP°C  TMD°C  Gravity</span>
+<span class="go">9            Mild 2          top  1036.5  ... -1.77   2.42      NaN</span>
+<span class="go">10  Zlaty Bazant 12       bottom    12.0  ... -2.36   2.18      NaN</span>
+
+<span class="go">[2 rows x 13 columns]</span>
+</pre></div>
+</div>
+<p>That’s better! We now have just the rows where there are empty inputs in the
+target column. In case you were wondering there are 13 columns, hidden
+columns are not as relevant as the index, name and the target column. When
+constructing a dataframe it is important to have the columns with names
+first, close to the index.</p>
+<p>Looking at row 9, ‘Gravity’ we have a value of “NaN”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Gravity&#39;</span><span class="p">]</span>
+<span class="go">NaN</span>
+</pre></div>
+</div>
+<p>as does the next row. Since row 9 is ‘Beer Type’ Mild 2 Gravity would be in
+British units, and row 10 is Zlaty Bazant 12 the Gravity would be in P.
+Update the values.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Gravity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Gravity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span>
+</pre></div>
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Alternative Index</p>
+<p>If Beer Type had unique values then it could have been made into an
+index in which case our modified commands would have been:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;Mild 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gravity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;Zlaty Bazant 12&#39;</span><span class="p">,</span> <span class="s1">&#39;Gravity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span>
+</pre></div>
+</div>
+</aside>
+<p>When working with single cells use <strong>at</strong> or <strong>iat</strong>, these are similar to
+<strong>loc</strong> and <strong>iloc</strong> when working with rows or columns.</p>
+<p>There is still work to be done on the columns <strong>Ferment Type</strong> and <strong>Gravity</strong>
+even after all empty inputs are rectified. These columns have limited values
+and we can let pandas autodetect all these values in declared columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s2">&quot;Ferment Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfb</span><span class="p">[</span><span class="s2">&quot;Ferment Type&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s2">&quot;Gravity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">dfb</span><span class="p">[</span><span class="s2">&quot;Gravity&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Check on what changes if any have occurred:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 11 entries, 0 to 10</span>
+<span class="go">Data columns (total 13 columns):</span>
+<span class="go">#   Column              Non-Null Count  Dtype</span>
+<span class="go">---  ------              --------------  -----</span>
+<span class="go">0   Beer Type           11 non-null     object</span>
+<span class="go">1   Ferment Type        11 non-null     category</span>
+<span class="go">2   OE°P                11 non-null     float64</span>
+<span class="go">3   AbV%                11 non-null     float64</span>
+<span class="go">4   AbW%                11 non-null     float64</span>
+<span class="go">5   DoF%                11 non-null     float64</span>
+<span class="go">6   TE°P                11 non-null     float64</span>
+<span class="go">7   AE°P                11 non-null     float64</span>
+<span class="go">8   Wort Density kg/m³  11 non-null     float64</span>
+<span class="go">9   Beer Density kg/m³  11 non-null     float64</span>
+<span class="go">10  FP°C                11 non-null     float64</span>
+<span class="go">11  TMD°C               11 non-null     float64</span>
+<span class="go">12  Gravity             11 non-null     category</span>
+<span class="go">dtypes: category(2), float64(10), object(1)</span>
+<span class="go">memory usage: 1.3+ KB</span>
+</pre></div>
+</div>
+<p>The non-null count in Gravity has been eliminated and the column type has
+changed from object to category. On a larger dataframe memory
+savings would also be seen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Beer Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">dtype(&#39;O&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Ferment Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">CategoricalDtype(categories=[&#39;bottom&#39;, &#39;top&#39;], ordered=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="s1">&#39;Gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<span class="go">CategoricalDtype(categories=[&#39;B&#39;, &#39;P&#39;], ordered=False)</span>
+</pre></div>
+</div>
+</section>
+<section id="smaller-types">
+<h2>Smaller Types<a class="headerlink" href="#smaller-types" title="Link to this heading">#</a></h2>
+<p>Often the numerical data type is stored in a much larger format than
+necessary. In the dataframe dfb there are 10 numeric columns stored as
+float64, in this instance the storage type can be changed without any loss:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">float64_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dfb</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="n">float64_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfb</span><span class="p">[</span><span class="n">float64_cols</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>alternatively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="p">[</span><span class="n">dfb</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="o">=</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">dfb</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 11 entries, 0 to 10</span>
+<span class="go">Data columns (total 13 columns):</span>
+<span class="go">#   Column              Non-Null Count  Dtype</span>
+<span class="go">---  ------              --------------  -----</span>
+<span class="go">0   Beer Type           11 non-null     object</span>
+<span class="go">1   Ferment Type        11 non-null     category</span>
+<span class="go">2   OE°P                11 non-null     float32</span>
+<span class="go">3   AbV%                11 non-null     float32</span>
+<span class="go">4   AbW%                11 non-null     float32</span>
+<span class="go">5   DoF%                11 non-null     float32</span>
+<span class="go">6   TE°P                11 non-null     float32</span>
+<span class="go">7   AE°P                11 non-null     float32</span>
+<span class="go">8   Wort Density kg/m³  11 non-null     float32</span>
+<span class="go">9   Beer Density kg/m³  11 non-null     float32</span>
+<span class="go">10  FP°C                11 non-null     float32</span>
+<span class="go">11  TMD°C               11 non-null     float32</span>
+<span class="go">12  Gravity             11 non-null     category</span>
+<span class="go">dtypes: category(2), float32(10), object(1)</span>
+<span class="go">memory usage: 926.0+ bytes</span>
+</pre></div>
+</div>
+<p>The memory use has gone down.</p>
+<p>A similar method can be used to change int64 to int32.</p>
+</section>
+<section id="invalid-data">
+<h2>Invalid Data<a class="headerlink" href="#invalid-data" title="Link to this heading">#</a></h2>
+<p>Continuing with data cleanup, invalid data is even more of a headache than
+non-existing data. If the data does not exist it can be readily detected and
+updated, replaced or dropped. First where we have columns with the wrong
+type has been inserted should be straightforward in the Categorical types.
+Help with numeric data comes with statistical information, first set the
+display output to show all the rows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="go">              OE°P       AbV%       AbW%       DoF%         TE°P         AE°P  \</span>
+<span class="go">count    11.000000  11.000000  11.000000  11.000000    11.000000    11.000000</span>
+<span class="go">mean    383.909091   4.284545   3.419091  64.570909   371.301818   368.437273</span>
+<span class="go">std     516.889786   0.901902   0.723194   5.812398   509.667698   508.073459</span>
+<span class="go">min      10.000000   2.500000   1.990000  52.120000     2.960000     1.340000</span>
+<span class="go">25%      11.000000   3.950000   3.150000  62.435000     3.455000     1.730000</span>
+<span class="go">50%      12.000000   4.500000   3.590000  65.870000     4.270000     2.480000</span>
+<span class="go">75%    1030.800000   4.965000   3.965000  68.360000  1012.800000  1008.100000</span>
+<span class="go">max    1045.300000   5.400000   4.320000  71.490000  1016.200000  1011.300000</span>
+
+<span class="go">       Wort Density kg/m³  Beer Density kg/m³       FP°C      TMD°C</span>
+<span class="go">count           11.000000           11.000000  11.000000  11.000000</span>
+<span class="go">mean           946.946364          917.256364  -2.056364   2.330000</span>
+<span class="go">std            313.806788          303.900661   0.372995   0.517958</span>
+<span class="go">min              1.050000            1.010000  -2.490000   1.030000</span>
+<span class="go">25%           1033.700000         1006.665000  -2.360000   2.180000</span>
+<span class="go">50%           1040.030000         1007.640000  -2.110000   2.420000</span>
+<span class="go">75%           1046.835000         1009.670000  -1.905000   2.685000</span>
+<span class="go">max           1055.130000         1016.730000  -1.350000   2.940000</span>
+</pre></div>
+</div>
+<p>Obviously British and Continental units cannot be mixed, so the beer types
+should have been separated, as different dataframes or additional rows used,
+whichever is appropriate.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Change the Display Limits</p>
+<p>The option for more columns has been already used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.expand_frame_repr&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</aside>
+</section>
+<section id="splitting-the-dataframe">
+<h2>Splitting the Dataframe<a class="headerlink" href="#splitting-the-dataframe" title="Link to this heading">#</a></h2>
+<p>Update <strong>Zlaty Bazant 12</strong> to continental units.
+Remove the British beers, then the continental ones, save to separate pickle
+files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dfc</span> <span class="o">=</span> <span class="n">dfb</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dfb</span><span class="p">[</span><span class="n">dfb</span><span class="o">.</span><span class="n">Gravity</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfc</span>
+<span class="go">              Beer Type Ferment Type  OE°P  AbV%  AbW%       DoF%  TE°P  AE°P  \</span>
+<span class="go">0             Topvar 10       bottom  10.0  4.50  3.59  71.489998  2.96  1.34</span>
+<span class="go">1             Topvar 12       bottom  12.0  5.40  4.32  71.080002  3.63  1.69</span>
+<span class="go">2   Pilsner Urquelle 10       bottom  10.0  4.30  3.43  68.360001  3.28  1.73</span>
+<span class="go">3   Pilsner Urquelle 12       bottom  12.0  5.00  3.99  65.870003  4.27  2.48</span>
+<span class="go">4       Zlaty Bazant 10       bottom  10.0  4.30  3.43  68.360001  3.28  1.73</span>
+<span class="go">5           Heavy Czech       bottom  13.6  4.93  3.94  57.450001  6.03  4.26</span>
+<span class="go">10      Zlaty Bazant 12       bottom  12.0  5.00  3.99  65.870003  4.27  2.48</span>
+
+<span class="go">    Wort Density kg/m³  Beer Density kg/m³  FP°C  TMD°C Gravity</span>
+<span class="go">0          1040.030029         1005.219971 -2.11   2.94       P</span>
+<span class="go">1          1048.369995         1006.590027 -2.49   2.68       P</span>
+<span class="go">2          1040.030029         1006.739990 -2.04   2.69       P</span>
+<span class="go">3          1048.369995         1009.690002 -2.36   2.18       P</span>
+<span class="go">4          1040.030029         1006.739990 -2.04   2.69       P</span>
+<span class="go">5          1055.130005         1016.729980 -2.40   1.03       P</span>
+<span class="go">10         1048.369995         1009.690002 -2.36   2.18       P</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfc</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;beer_list_cont&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dfb</span><span class="p">[</span><span class="n">dfb</span><span class="o">.</span><span class="n">Gravity</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span>
+<span class="go">  Beer Type Ferment Type         OE°P  AbV%  AbW%       DoF%         TE°P  \</span>
+<span class="go">6  Bitter 1          top  1030.900024   3.0  2.39  61.889999  1011.900024</span>
+<span class="go">7  Bitter 2          top  1045.300049   4.6  3.67  64.809998  1016.200012</span>
+<span class="go">8    Mild 1          top  1030.699951   2.5  1.99  52.119999  1014.799988</span>
+<span class="go">9    Mild 2          top  1036.500000   3.6  2.87  62.980000  1013.700012</span>
+
+<span class="go">          AE°P  Wort Density kg/m³  Beer Density kg/m³  FP°C  TMD°C Gravity</span>
+<span class="go">6  1007.599976         1030.900024         1007.640015 -1.51   2.60       B</span>
+<span class="go">7  1009.599976         1045.300049         1009.650024 -2.19   2.20       B</span>
+<span class="go">8  1011.299988         1030.699951         1011.260010 -1.35   2.02       B</span>
+<span class="go">9  1008.599976         1036.500000         1008.549988 -1.77   2.42       B</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dfb</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;beer_list_brit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When retrieving the data from the pickle files note that the original indexing
+is in place, as are the float32 and categorized columns. If saved in csv then
+remember to switch off the index when saving, as a new index will be made
+when reloaded. Remember that columns will lose their categorisation and
+numbers will be the highest type.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="df_change.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Manipulation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="plotting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visualising Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#right-character-set">Right Character Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrong-data-type">Wrong Data Type</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time-columns">Date Time Columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#currency-symbols">Currency Symbols</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thousand-delimiters">Thousand Delimiters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smaller-types">Smaller Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-data">Invalid Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-the-dataframe">Splitting the Dataframe</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/df/df_clean.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, edga donk.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
