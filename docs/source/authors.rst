@@ -72,36 +72,48 @@ Some of the trickier parts of tkinter.ttk
 
 .. _froth: https://frothy-brew.readthedocs.io/en/latest/index.html
 
-.. image:: _static/frothy_brew.avif
-   :width: 552
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: froth_
    :class: only-light
 
-.. image:: _static/frothy_brewneon.avif
-   :width: 552
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: froth_
    :class: only-dark
 
-From ttk.notebook to ttk.scale, with canvas move and create a colour picker.
+|
+
+:AL:`Frothy Brew` 
+
+tkinter odds and ends
 
 Styling with tkinter.ttk
 ------------------------
 
 .. _style: https://tkinterttkstyle.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_style.avif
-   :width: 831
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: style_
    :class: only-light
 
-.. image:: _static/benneon_style.avif
-   :width: 831
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: style_
    :class: only-dark
+
+|
+
+:AL:`Putting on the Style` 
 
 Creating your own theme using Style.
 
@@ -110,56 +122,73 @@ Linking Python to Arduino
 
 .. _ard: https://electronic-python.readthedocs.io/en/latest/index.html
 
-.. image:: _static/arduino.avif
-   :width: 572
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: ard_
    :class: only-light
 
-.. image:: _static/arduinoneon.avif
-   :width: 572
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: ard_
    :class: only-dark
 
-Basics and working with VPython, then create a digital gauge.
+|
 
-Adding dimensions to PIL
-------------------------
+:AL:`Electronic Python` 
+
+Basics use VPython create a digital gauge 
+
+Dimensioning in PIL
+-------------------
 
 .. _dims: https://pil-dimensions.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_dim.avif
-   :width: 955
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: dims_
-   :class: only-light   
+   :class: only-light
 
-.. image:: _static/ben_dimneon.avif
-   :width: 955
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: dims_
-   :class: only-dark   
+   :class: only-dark
 
-Add dimensions with either arrows or tailed lines, dashed lines and all
-made with antialiasing if required.
+|
+
+:AL:`Keep taking the Pils` 
+
+Dimensions with arrows or lines, dashed lines with antialiasing
 
 Water Properties
 ----------------
 
 .. _ale: https://adams-ale.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_ale.avif
-   :width: 533
-   :height: 104
-   :target: ale_
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
+   :target: froth_
    :class: only-light
 
-.. image:: _static/ben_aleneon.avif
-   :width: 533
-   :height: 104
-   :target: ale_
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
+   :target: froth_
    :class: only-dark
+
+|
+
+:AL:`Adam's Ale` 
 
 Simplified but accurate water properties with interactive altair plots.
 
@@ -168,20 +197,25 @@ Iterative Solutions
 
 .. _imps: https://pesky-imps.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_imps.avif
-   :width: 533
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: imps_
    :class: only-light
 
-.. image:: _static/ben_impsneon.avif
-   :width: 533
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: imps_
    :class: only-dark
 
-Iterative methods used for interpolation, extrapolation, root finding and 
-equation optimisation, many of the methods are similar.
+|
+
+:AL:`Pesky Imps` 
+
+Iterative interpolation, extrapolation. finding roots and optimisation
 
 
 Flask
@@ -189,18 +223,22 @@ Flask
 
 .. _flask: https://python-flask.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_flask.avif
-   :width: 533
-   :height: 104
-   :target: imps_
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: flask_
    :class: only-light
 
-.. image:: _static/ben_flaskneon.avif
-   :width: 533
-   :height: 104
-   :target: imps_
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: flask_
    :class: only-dark
 
-Create and control web pages working under a Flask server 
-that powers a dynamic web 
-application, where user actions affect the content.
+|
+
+:AL:`Leather Bottle`
+
+Create web pages, control with python, run with Flask server   

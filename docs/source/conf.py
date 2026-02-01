@@ -102,3 +102,10 @@ html_theme_options = {
 }
 
 html_favicon = '_static/ben1.ico'
+
+smartquotes = False
+
+rst_prolog = f"""
+.. role:: AL
+    :class: keys
+"""
