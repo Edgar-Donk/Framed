@@ -4,5 +4,8 @@ pandas
 matplotlib
 seaborn
 plotly
+numpy
+mplcursors
 pydata_sphinx_theme
 sphinx-copybutton
+sphinx-exec-code
