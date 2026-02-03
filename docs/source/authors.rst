@@ -242,3 +242,28 @@ Flask
 :AL:`Leather Bottle`
 
 Create web pages, control with python, run with Flask server   
+
+Polars Dataframe
+----------------
+
+.. _bucks: https://https://big-bucks.readthedocs.io/en/latest/bear/bear_index.html
+
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: bucks_
+   :class: only-light
+
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: bucks_
+   :class: only-dark
+
+|
+
+:AL:`Big Bucks`
+
+Load larger dataframes, find out its properties then change as necessary.
