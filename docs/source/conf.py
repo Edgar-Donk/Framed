@@ -10,15 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-#import os
-#import sys
-#sys.path.insert(0, os.path.abspath('./scripts/'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('./scripts/'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # The master toctree document.
 master_doc = 'index'
 # -- Project information -----------------------------------------------------
 
-project = "Framed!"
+project = "Pesky Imps!"
 copyright = '2023, edga donk'
 author = 'edga donk'
 
@@ -35,16 +36,19 @@ extensions = ["sphinx.ext.autodoc",
     'sphinx.ext.napoleon',
     "sphinx.ext.autosummary",
     # "numpydoc",
-    #'sphinx.ext.mathjax',
+    'sphinx.ext.mathjax',
     'sphinx_copybutton',
-    'matplotlib.sphinxext.plot_directive',
-    #'sphinx_exec_code',
+    #'matplotlib.sphinxext.plot_directive',
+    'sphinx_exec_code',
     #'sphinx.ext.duration',
     #'sphinx.ext.doctest',
 ]
 
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -65,6 +69,7 @@ html_theme = 'pydata_sphinx_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 html_theme_options = {
   "show_prev_next": True,
@@ -95,7 +100,7 @@ def setup(app):
 
 html_theme_options = {
    "logo": {
-      "text": "Framed!",
+      "text": "Pesky Imps!",
       "image_light": 'bigbenc.avif',
       "image_dark": "bigbencneon.avif",
    }

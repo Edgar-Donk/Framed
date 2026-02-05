@@ -4,8 +4,9 @@
 Contributors
 ============
 
-Edgar Donk, but mainly all those people working on Python, Pandas and Sphinx, 
-without whom this would not have been possible.
+Edgar Donk, but mainly all those people working on Python, Matplotlib and 
+Sphinx, without whom this would not have been possible. In most of the scripts
+are the cribbed sources, a special thanks to all those people. 
 
 =======
 Contact
@@ -21,9 +22,9 @@ long.
 Repository
 ==========
 
-You should find all the pandas examples and the visualisations here.
+You should find all the equation examples and the visualisations here.
 
-`framed! <https://github.com/Edgar-Donk/Framed>`_
+`Pesky Imps! <https://github.com/Edgar-Donk/Pesky-Imps>`_
 
 
 Read the Docs
@@ -31,7 +32,7 @@ Read the Docs
 
 Where you'll find the explanations.
 
-`Read the Docs <https://frameyourdata.readthedocs.io/en/latest/index.html>`_
+`Read the Docs <https://pesky-imps.readthedocs.io/en/latest/>`_
 
 More
 ====
@@ -90,7 +91,8 @@ Some of the trickier parts of tkinter.ttk
 
 :AL:`Frothy Brew` 
 
-tkinter odds and ends
+tkinter odds and ends, from ttk.notebook to ttk.scale, with canvas move and create a colour picker.
+
 
 Styling with tkinter.ttk
 ------------------------
@@ -140,7 +142,7 @@ Linking Python to Arduino
 
 :AL:`Electronic Python` 
 
-Basics use VPython create a digital gauge 
+Basics and working with VPython create a digital gauge 
 
 Dimensioning in PIL
 -------------------
@@ -165,7 +167,7 @@ Dimensioning in PIL
 
 :AL:`Keep taking the Pils` 
 
-Dimensions with arrows or lines, dashed lines with antialiasing
+Dimensions with arrows or lines, dashed lines optionally antialiased
 
 Water Properties
 ----------------
@@ -191,32 +193,6 @@ Water Properties
 :AL:`Adam's Ale` 
 
 Simplified but accurate water properties with interactive altair plots.
-
-Iterative Solutions
--------------------
-
-.. _imps: https://pesky-imps.readthedocs.io/en/latest/index.html
-
-.. image:: _static/bigben.avif
-   :width: 200
-   :height: 196
-   :align: left 
-   :target: imps_
-   :class: only-light
-
-.. image:: _static/bigbenneon.avif
-   :width: 200
-   :height: 196
-   :align: left 
-   :target: imps_
-   :class: only-dark
-
-|
-
-:AL:`Pesky Imps` 
-
-Iterative interpolation, extrapolation. finding roots and optimisation
-
 
 Flask
 -----
