@@ -10,16 +10,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-sys.path.insert(0, os.path.abspath('./scripts/'))
-sys.path.insert(0, os.path.abspath('.'))
+#import os
+#import sys
+#sys.path.insert(0, os.path.abspath('./scripts/'))
 
 # The master toctree document.
 master_doc = 'index'
 # -- Project information -----------------------------------------------------
 
-project = "Pesky Imps!"
+project = "Framed!"
 copyright = '2023, edga donk'
 author = 'edga donk'
 
@@ -36,19 +35,16 @@ extensions = ["sphinx.ext.autodoc",
     'sphinx.ext.napoleon',
     "sphinx.ext.autosummary",
     # "numpydoc",
-    'sphinx.ext.mathjax',
+    #'sphinx.ext.mathjax',
     'sphinx_copybutton',
-    #'matplotlib.sphinxext.plot_directive',
-    'sphinx_exec_code',
+    'matplotlib.sphinxext.plot_directive',
+    #'sphinx_exec_code',
     #'sphinx.ext.duration',
     #'sphinx.ext.doctest',
 ]
 
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -100,7 +96,7 @@ def setup(app):
 
 html_theme_options = {
    "logo": {
-      "text": "Pesky Imps!",
+      "text": "Framed!",
       "image_light": 'bigbenc.avif',
       "image_dark": "bigbencneon.avif",
    }
