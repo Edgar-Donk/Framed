@@ -17,6 +17,7 @@ and visualise the data.
     * Data Manipulation
     * Cleaning Data
     * Visualising Data
+    ![alcoholvcalorific value for beers](./docs/source/figures/br_custom_hue.avif)
     * Storage Format
     * Saving Data
 
